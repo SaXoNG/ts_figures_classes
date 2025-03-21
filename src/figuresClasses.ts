@@ -14,14 +14,24 @@ export class Triangle implements Figure {
     public b: number,
     public c: number,
   ) {
-    if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('Sides must be greater than 0');
+    if (a <= 0) {
+      throw new Error('Side A must be greater than 0');
+    }
+
+    if (b <= 0) {
+      throw new Error('Side B must be greater than 0');
+    }
+
+    if (c <= 0) {
+      throw new Error('Side C must be greater than 0');
     }
 
     const sides = [a, b, c].sort((x, y) => x - y);
 
     if (sides[2] >= sides[0] + sides[1]) {
-      throw new Error('Sides cannot form a triangle');
+      throw new Error(
+        `The sum of the two shorter sides (${sides[0]} and ${sides[1]}) must be greater than the longest side (${sides[2]})`,
+      );
     }
   }
 
@@ -60,8 +70,12 @@ export class Rectangle implements Figure {
     public width: number,
     public height: number,
   ) {
-    if (width <= 0 || height <= 0) {
-      throw new Error('Width and height must be greater than 0');
+    if (width <= 0) {
+      throw new Error('Width must be greater than 0');
+    }
+
+    if (height <= 0) {
+      throw new Error('Height must be greater than 0');
     }
   }
 
