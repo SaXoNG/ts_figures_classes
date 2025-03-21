@@ -9,10 +9,10 @@ export class Triangle implements Figure {
   shape: 'triangle' = 'triangle';
 
   constructor(
-    public color: 'red' | 'green' | 'blue',
-    public a: number,
-    public b: number,
-    public c: number,
+    public readonly color: 'red' | 'green' | 'blue',
+    public readonly a: number,
+    public readonly b: number,
+    public readonly c: number,
   ) {
     if (a <= 0) {
       throw new Error('Side A must be greater than 0');
@@ -47,8 +47,8 @@ export class Circle implements Figure {
   shape: 'circle' = 'circle';
 
   constructor(
-    public color: 'red' | 'green' | 'blue',
-    public radius: number,
+    public readonly color: 'red' | 'green' | 'blue',
+    public readonly radius: number,
   ) {
     if (radius <= 0) {
       throw new Error('Radius must be greater than 0');
@@ -66,9 +66,9 @@ export class Rectangle implements Figure {
   shape: 'rectangle' = 'rectangle';
 
   constructor(
-    public color: 'red' | 'green' | 'blue',
-    public width: number,
-    public height: number,
+    public readonly color: 'red' | 'green' | 'blue',
+    public readonly width: number,
+    public readonly height: number,
   ) {
     if (width <= 0) {
       throw new Error('Width must be greater than 0');
